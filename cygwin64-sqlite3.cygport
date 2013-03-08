@@ -1,0 +1,27 @@
+CROSS_HOST="x86_64-pc-cygwin"
+inherit cross
+
+orig_pv=$((PV[1] * 1000000 + PV[2] * 10000 + PV[3] * 100 + PV[4]))
+
+NAME="cygwin64-sqlite3"
+VERSION=3.7.15.2
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="SQLite3 library for Cygwin 64bit toolchain"
+SUMMARY="SQLite is a C library that implements an embeddable SQL database
+engine.  Programs that link with the SQLite library can have SQL database
+access without running a separate RDBMS process. The distribution comes with
+a standalone command-line access program that can be used to administer an
+SQLite database and which serves as an example of how to use the SQLite library."
+HOMEPAGE="http://www.sqlite.org/"
+SRC_URI="http://www.sqlite.org/sqlite-autoconf-${orig_pv}.tar.gz"
+SRC_DIR="sqlite-autoconf-${orig_pv}"
+
+DISTCLEANFILES="sqlite3.pc"
+
+NO_AUTOHEADER=1
+CPPFLAGS+=" -DSQLITE_OS_UNIX -DSQLITE_SOUNDEX -DSQLITE_ENABLE_COLUMN_METADATA \
+    -DSQLITE_ENABLE_FTS_PARENTHESIS -DSQLITE_ENABLE_FTS3 -DSQLITE_ENABLE_FTS4"
+MAKEOPTS+=" bin_PROGRAMS= man_MANS= "
+
+KEEP_LA_FILES="none"
