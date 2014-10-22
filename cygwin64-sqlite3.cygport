@@ -8,7 +8,7 @@ VERSION=3.7.15.2
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="SQLite3 library for Cygwin 64bit toolchain"
-SUMMARY="SQLite is a C library that implements an embeddable SQL database
+DESCRIPTION="SQLite is a C library that implements an embeddable SQL database
 engine.  Programs that link with the SQLite library can have SQL database
 access without running a separate RDBMS process. The distribution comes with
 a standalone command-line access program that can be used to administer an
